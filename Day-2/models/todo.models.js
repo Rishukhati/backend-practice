@@ -1,12 +1,24 @@
 import mongoose from "mongoose" ;
 
 const todoSchema = new mongoose.Schema({
-    contact: {
+    content: {
         type: String,
         required: true,
-        lowercase: true,
-        trim: true,
-    }
+    },
+    complete:{
+        type: Boolean,
+        default: false
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    subTodos: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "subTodo"
+        },
+    ], 
 } , {timestamps : true})
 
 export const Todo = mongoose.model("todo" , todoSchema)
