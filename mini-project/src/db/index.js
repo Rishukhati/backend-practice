@@ -12,8 +12,7 @@ import {DB_NAME} from "../constants.js"
         catch (error) {
 
             console.log("MONGODB connection FAILED", error);
-
-
+            
             process.exit (1)
             
         }
